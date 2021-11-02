@@ -11,15 +11,31 @@
 <body>
     <main>
         <div id="root">
-                <div class="add-container">
-                    <input type="text" id="todoInput" placeholder="Inserisci una task">
-                    <button @click="newTodo">Add</button>
-                </div>
-                <div class="task_container">
+            <div class="add-container">
+                <input type="text" id="todoInput" placeholder="Inserisci una task">
+                <button @click="newTodo">Add</button>
+            </div>
+            <div class="task_container" id="tasks">
+                <h1>Tasks</h1>
                 <div v-for="(task, index) in tasks "class="tasks">
-                    <p>{{task}}</p>
-                    <i @click="remove" class="far fa-times-circle" :id="index"></i>
+                    <p :id="index">{{task}}</p>
+                    <i @click="remove(index)" class="far fa-times-circle"></i>
+                    <i @click="edit(index)" class="fas fa-pencil"></i>
                 </div>
+                <p id="no-tasks">Non ci sono altre task da eseguire</p>
+                <h1>Completate</h1>
+                <div v-for="(complete, i) in completed "class="completed">
+                    <p >{{complete}}</p>
+                    <i @click="alert(i)" class="far fa-check-circle"></i>
+                    <i @click="del(i)" class="fas fa-trash"></i>
+                </div>
+                <div class="cestino-container">
+                    <h1>Cestino</h1>
+                    <div v-for="(trash, j) in cestino "class="cestino">
+                        <p >{{trash}}</p>
+                    </div>
+                    <button id="delAll" @click="delAll">Delete All</button>
+                </div>    
             </div>
         </div>
     </main>

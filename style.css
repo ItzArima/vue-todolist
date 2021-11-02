@@ -7,3 +7,11 @@
 .tasks{
     display: flex;
 }
+
+#no-tasks{
+    display: none;
+}
+
+.completed{
+    display: flex;
+}
