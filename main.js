@@ -13,6 +13,7 @@ const app = new Vue({
 
         ],
         reset: 0,
+        identifier : 0,
     },
     methods:{
         newTodo(){
@@ -45,10 +46,13 @@ const app = new Vue({
             console.log("deleted");
         },
         edit(index){
-            var edited = prompt("inserire il valore modificato")
-            this.tasks[index] = edited
-            document.getElementById(index).innerHTML = edited
-            console.log("edited");
+            var edit = document.getElementById(index)
+            edit.innerHTML = `
+                <input type="text" id ="editing">
+                <button onclick="confirmEdit()" >Edit</button>
+            `
+            document.getElementById("editing").value = this.tasks[index]
+            this.identifier = index 
         },
         delAll(){
             var confirm = prompt("After this command you will not be able to get your data back, type 'Y' for yes and 'N' for not")
@@ -65,7 +69,12 @@ const app = new Vue({
             else{
                 alert("Action cancelled")
             }
-        }   
+        },
+        reRun(index){
+            this.tasks.push(this.completed[index])
+            this.completed.splice(index, 1)
+            console.log("ciao");
+        }
     },
 })
 
@@ -76,3 +85,13 @@ input.addEventListener('keyup', function(event){
         app.newTodo();
     }
 })
+
+function confirmEdit(){
+    var edited = document.getElementById("editing").value
+    app.tasks[app.identifier] = edited
+    console.log(edited);
+    var identifier = app.identifier
+    console.log(identifier);
+    var selector = document.getElementById(identifier)
+    selector.innerHTML = edited 
+} 

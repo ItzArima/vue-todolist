@@ -10,6 +10,7 @@
 </head>
 <body>
     <main>
+        <img src="https://www.boolean.careers/images/misc/logo.png" alt="" srcset="">
         <div id="root">
             <div class="add-container">
                 <input type="text" id="todoInput" placeholder="Inserisci una task">
@@ -19,24 +20,29 @@
                 <h1>Tasks</h1>
                 <div v-for="(task, index) in tasks "class="tasks">
                     <p :id="index">{{task}}</p>
-                    <i @click="remove(index)" class="far fa-times-circle"></i>
-                    <i @click="edit(index)" class="fas fa-pencil"></i>
+                    <div class="actions">
+                        <i @click="remove(index)" class="far fa-times-circle"></i>
+                        <i @click="edit(index)" class="fas fa-pencil"></i>
+                    </div>    
                 </div>
                 <p id="no-tasks">Non ci sono altre task da eseguire</p>
+            </div>
+            <div class="completed-container">    
                 <h1>Completate</h1>
                 <div v-for="(complete, i) in completed "class="completed">
-                    <p >{{complete}}</p>
+                    <p class ="completed">{{complete}}</p>
                     <i @click="alert(i)" class="far fa-check-circle"></i>
                     <i @click="del(i)" class="fas fa-trash"></i>
+                    <i @click="reRun(i)" class="fas fa-undo-alt"></i>
                 </div>
-                <div class="cestino-container">
-                    <h1>Cestino</h1>
-                    <div v-for="(trash, j) in cestino "class="cestino">
-                        <p >{{trash}}</p>
-                    </div>
-                    <button id="delAll" @click="delAll">Delete All</button>
-                </div>    
-            </div>
+            </div>    
+            <div class="cestino-container">
+                <h1>Cestino</h1>
+                <div v-for="(trash, j) in cestino "class="cestino">
+                    <p >{{trash}}</p>
+                </div>
+                <button id="delAll" @click="delAll">Delete All</button>
+            </div>    
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
