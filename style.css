@@ -15,3 +15,91 @@
 .completed{
     display: flex;
 }
+
+.main-container{
+    width: 75%;
+    margin: auto;
+}
+
+.logo{
+    width: 30%;
+    margin: auto;
+}
+
+.logo img{
+    width: 100%;
+}
+
+.add-container{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#todoInput{
+    width: 75%;
+    height: 35px;
+}
+
+.add-container button{
+    height: 35px;
+    width: 15%;
+    
+}
+
+.input{
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-container p{
+    text-align: center;
+}
+
+.console{
+    display: flex;
+    height: 400px;
+}
+
+.task_container{
+    width: 50%;
+}
+
+.completed-container{
+    width: 20%;
+}
+
+.cestino-container{
+    width: 30%;
+}
+
+main{
+    background-color: #b0c4de;
+    height: 100vh;
+}
+
+.cestino-container, .completed-container, .task_container{
+    background: white;
+    border-radius: 33px;
+    padding: 1rem;
+    margin: 0.25rem;
+}
+
+h2{
+    margin-bottom: 1rem;
+}
+
+.tasks , .completed, .cestino{
+    height: 50px;
+    line-height: 50px;
+}
+
+.cestino{
+    display: flex;
+}
+
+i{
+    margin: 0 0.25rem;
+}

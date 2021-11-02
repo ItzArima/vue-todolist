@@ -73,7 +73,18 @@ const app = new Vue({
         reRun(index){
             this.tasks.push(this.completed[index])
             this.completed.splice(index, 1)
-            console.log("ciao");
+            if(app.reset == 1){
+                document.getElementById("no-tasks").style.display = "none"
+                app.reset = 0
+            }
+        },
+        reDo(index){
+            this.tasks.push(this.cestino[index])
+            this.cestino.splice(index , 1)
+            if(app.reset == 1){
+                document.getElementById("no-tasks").style.display = "none"
+                app.reset = 0
+            }
         }
     },
 })
@@ -95,3 +106,4 @@ function confirmEdit(){
     var selector = document.getElementById(identifier)
     selector.innerHTML = edited 
 } 
+
